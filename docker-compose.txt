@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    container_name: chat-summarization-api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017
+      - DB_NAME=chat_db
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+    volumes:
+      - ./app:/app/app
+
+  mongodb:
+    image: mongo:6.0
+    container_name: chat-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    restart: unless-stopped
+
+volumes:
+  mongodb_data:

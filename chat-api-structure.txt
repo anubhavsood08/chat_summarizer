@@ -1,0 +1,30 @@
+chat_summarization_api/
+├── app/
+│   ├── __init__.py
+│   ├── main.py               # FastAPI app entry point
+│   ├── config.py             # Configuration settings
+│   ├── database.py           # Database connection setup
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── chat.py           # Pydantic models for chat data
+│   │   └── responses.py      # Pydantic models for API responses
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   └── chat_routes.py    # API route definitions
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── chat_service.py   # Chat CRUD operations
+│   │   └── llm_service.py    # LLM integration for summarization
+│   └── utils/
+│       ├── __init__.py
+│       └── helpers.py        # Utility functions
+├── tests/
+│   ├── __init__.py
+│   ├── test_routes.py
+│   └── test_services.py
+├── .env                      # Environment variables
+├── .gitignore
+├── requirements.txt
+├── Dockerfile
+├── docker-compose.yml
+└── README.md
